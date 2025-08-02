@@ -33,6 +33,16 @@ public class PublicController {
     @Autowired
     private JwtUtil jwtUtil;
 
+    @GetMapping("health-check")
+    public ResponseEntity<?> healthCheck(){
+        try {
+            return new ResponseEntity<>("OK", HttpStatus.OK);
+        }catch (Exception e){
+            log.error("Exception: " + e);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @PostMapping("signup")
     public ResponseEntity<?> createSignUp(@RequestBody User user){
         User myUser = userService.createUser(user);
