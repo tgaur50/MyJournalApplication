@@ -1,0 +1,78 @@
+spring:
+  application:
+    name: JournalApplication
+  data:
+    mongodb:
+      uri: ${MONGO_URI}
+      database: journalDB
+      auto-index-creation: true
+  main:
+    allow-circular-references: true
+  mail:
+    host: smtp.gmail.com
+    port: ${SMTP_PORT}
+    username: ${USER_EMAIL}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+        debug: true
+  redis:
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
+    password: ${REDIS_PASSWORD}
+    ssl:
+      enabled: true
+    timeout: 60000
+  kafka:
+    properties:
+      sasl:
+        mechanism: PLAIN
+        jaas:
+          config: >
+            org.apache.kafka.common.security.plain.PlainLoginModule required
+            username='IFRITZHTPKP5ZYKN'
+            password='gRzDzUguP4h/ASQk5Cs4u76lxHj3QapNT4+ByfbKMGnvFG/9VdTpkh4kQypWfZVo';
+      security:
+        protocol: SASL_SSL
+      session:
+        timeout:
+          ms: 45000
+    bootstrap-servers: ${KAFKA_SERVER}
+    consumer:
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: com.journal.app.JournalApplication.model
+            value:
+              default:
+                type: com.journal.app.JournalApplication.model.SentimentData
+      auto-offset-reset: earliest
+      group-id: weekly-sentiment-group-test5
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+server:
+  port: ${SERVER_PORT}
+
+weather-api-key: ${WEATHER_API_KEY}
+
+client:
+  id: ${CLIENT_ID}
+
+logging:
+  level:
+    org:
+      springframework:
+        mail: DEBUG
+        boot:
+          autoconfigure:
+            mail: DEBUG
+        kafka: DEBUG
