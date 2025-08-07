@@ -1,0 +1,49 @@
+spring.application.name=JournalApplication
+spring.data.mongodb.uri=mongodb+srv://JournalMongo:quHMDNzDuK11S3XQ@cluster0.ph0umr8.mongodb.net/journalDB?retryWrites=true&w=majority&tls=true&appName=Cluster0
+spring.data.mongodb.database=journalDB
+spring.data.mongodb.auto-index-creation=true
+spring.main.allow-circular-references=true
+server.port=8081
+weather-api-key=56aab482c7f3a126ba65ea862637a191
+# === SMTP server details ===
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=tushargaur9913103636@gmail.com
+spring.mail.password=owsu hipk tasq grqs
+spring.redis.host=redis-19854.c264.ap-south-1-1.ec2.redns.redis-cloud.com
+spring.redis.port=19854
+spring.redis.password=9DsV51dzksqdwFT7PfBYa9VlATxyEo5c
+spring.redis.ssl.enabled=true
+spring.redis.timeout=60000
+# === SMTP protocol settings ===
+#spring.mail.protocol=smtp
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+#spring.mail.properties.mail.smtp.connectiontimeout=5000
+#spring.mail.properties.mail.smtp.timeout=5000
+#spring.mail.properties.mail.smtp.writetimeout=5000
+
+# === Optional debug (for logs) ===
+spring.mail.properties.mail.debug=true
+# Required connection configs for Kafka producer, consumer, and admin
+spring.kafka.properties.sasl.mechanism=PLAIN
+spring.kafka.bootstrap-servers=pkc-l7pr2.ap-south-1.aws.confluent.cloud:9092
+spring.kafka.properties.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username='IFRITZHTPKP5ZYKN' password='gRzDzUguP4h/ASQk5Cs4u76lxHj3QapNT4+ByfbKMGnvFG/9VdTpkh4kQypWfZVo';
+spring.kafka.properties.security.protocol=SASL_SSL
+spring.kafka.consumer.properties.spring.json.trusted.packages=com.journal.app.JournalApplication.model
+spring.kafka.consumer.properties.spring.json.value.default.type=com.journal.app.JournalApplication.model.SentimentData
+spring.kafka.consumer.auto-offset-reset=earliest
+
+# Best practice for higher availability in Apache Kafka clients prior to 3.0
+spring.kafka.properties.session.timeout.ms=45000
+
+client.id=ccloud-springboot-client-45dbaa80-f246-4fd4-a36c-6410fb157172
+spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer=org.springframework.kafka.support.serializer.JsonSerializer
+spring.kafka.consumer.group-id=weekly-sentiment-group-test5
+spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+#spring.kafka.consumer.properties.spring.deserializer.value.delegate.class=org.springframework.kafka.support.serializer.JsonDeserializer
+logging.level.org.springframework.mail=DEBUG
+logging.level.org.springframework.boot.autoconfigure.mail=DEBUG
+logging.level.org.springframework.kafka=DEBUG
