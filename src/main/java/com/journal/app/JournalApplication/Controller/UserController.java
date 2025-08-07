@@ -4,6 +4,7 @@ import com.journal.app.JournalApplication.Entity.User;
 import com.journal.app.JournalApplication.Service.UserService;
 import com.journal.app.JournalApplication.Service.WeatherService;
 import com.journal.app.JournalApplication.api.responsepojo.WeatherResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/User")
+@Tag(name="User-APIs", description = "This is Rest API for a User of Journal Application")
 public class UserController {
     @Autowired
     private UserService userService;

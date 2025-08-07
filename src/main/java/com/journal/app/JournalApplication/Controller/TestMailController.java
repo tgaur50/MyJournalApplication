@@ -2,11 +2,13 @@ package com.journal.app.JournalApplication.Controller;
 
 import com.journal.app.JournalApplication.Service.SentimentConsumerService;
 import com.journal.app.JournalApplication.model.SentimentData;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Tag(name="Test-APIs", description = "This is Rest API to send a test mail in Journal Application")
 public class TestMailController {
     @Autowired
     private SentimentConsumerService sentimentConsumerService;

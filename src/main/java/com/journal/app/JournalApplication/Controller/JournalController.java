@@ -3,6 +3,7 @@ package com.journal.app.JournalApplication.Controller;
 import com.journal.app.JournalApplication.Entity.Journal;
 import com.journal.app.JournalApplication.Service.JournalService;
 import com.journal.app.JournalApplication.Service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/Journal")
+@Tag(name="Journal-APIs", description = "This is Rest API for Journals of Journal Application")
 public class JournalController {
     @Autowired
     private JournalService journalService;

@@ -4,6 +4,7 @@ import com.journal.app.JournalApplication.Entity.User;
 import com.journal.app.JournalApplication.Service.CustomUserDetailsService;
 import com.journal.app.JournalApplication.Service.UserService;
 import com.journal.app.JournalApplication.Utils.JwtUtil;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/JournalApp")
 @Slf4j
+@Tag(name="Public-APIs", description = "This is Rest API for open source/public operations of Journal Application")
 public class PublicController {
     @Autowired
     private UserService userService;
